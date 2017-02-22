@@ -15,7 +15,7 @@ class MITIETokenizer(object):
         offset = 0
         tokens = [w.decode('utf-8') for w in tokenize(_text)]
         for tok in tokens:
-            m = re.search(tok, _text[offset:])
+            m = re.search(r'\b' + tok + r'\b', _text[offset:])
             offset += m.start()
             offsets.append(offset)
         return tokens, offsets
